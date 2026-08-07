@@ -190,11 +190,33 @@
   .sheet-dl:active{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink)}
   .sheet-note{font-family:'Chakra Petch';font-weight:700;font-size:.7rem;letter-spacing:.05em;color:var(--mute);text-align:center;margin-top:9px}
 
+  /* ---------- SCHEDULE ---------- */
+  .sked{display:flex;flex-direction:column;gap:12px}
+  .ev{position:relative;display:flex;align-items:stretch;gap:0;background:#fff;border:3px solid var(--ink);border-radius:6px;box-shadow:5px 5px 0 var(--ink);overflow:hidden}
+  .ev-date{flex:0 0 82px;background:var(--navy);color:#fff;text-align:center;padding:12px 6px;border-right:3px solid var(--ink);display:flex;flex-direction:column;justify-content:center}
+  .ev.tbd .ev-date{background:var(--mid)}
+  .ev-mo{font-family:'Chakra Petch';font-weight:700;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+  .ev.tbd .ev-mo{color:#fff}
+  .ev-day{font-family:'Bangers',cursive;font-size:2.1rem;line-height:.95;-webkit-text-stroke:.5px var(--ink)}
+  .ev-dow{font-family:'Chakra Petch';font-weight:700;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+  .ev-body{flex:1;padding:12px 14px;min-width:0}
+  .ev-name{font-family:'Bangers',cursive;font-size:1.25rem;line-height:1.05;letter-spacing:.02em}
+  .ev-loc{font-size:.82rem;line-height:1.4;color:var(--mute);margin-top:3px}
+  .ev-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:9px}
+  .ev-chip{display:inline-flex;align-items:center;gap:5px;font-family:'Chakra Petch';font-weight:700;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;border:2px solid var(--ink);border-radius:4px;padding:3px 8px}
+  .ev-chip svg{display:block;width:11px;height:11px;flex:0 0 11px}
+  .ev-chip.on{background:#1FA463;color:#fff}
+  .ev-chip.hold{background:#E8A317;color:var(--ink)}
+  .ev-dir{display:inline-flex;align-items:center;gap:5px;font-family:'Chakra Petch';font-weight:700;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;background:var(--accent-deep);color:#fff;border:2px solid var(--ink);border-radius:4px;padding:3px 8px;text-decoration:none}
+  .ev-dir svg{display:block;width:11px;height:11px;flex:0 0 11px}
+  .ev-dir:hover{background:var(--accent);color:var(--ink)}
+  .ev.tbd{opacity:.92}
+
   /* ---------- PROMISE ---------- */
   .promise{position:relative;background:var(--navy);color:#fff;border:3px solid var(--ink);border-radius:10px;box-shadow:7px 7px 0 var(--accent-deep);padding:26px 22px;overflow:hidden;text-align:center}
   .promise::before{content:"";position:absolute;inset:-30%;background:repeating-conic-gradient(from 0deg at 50% 30%, rgba(123,175,212,.14) 0deg 3deg, transparent 3deg 10deg)}
   .promise-palm{position:absolute;right:-14px;bottom:-14px;width:120px;height:auto;opacity:.22;z-index:1}
-  .promise-big{font-family:'Bangers',cursive;font-size:clamp(1.9rem,7vw,2.9rem);line-height:1;text-transform:uppercase;letter-spacing:.02em;-webkit-text-stroke:1px var(--ink);text-shadow:3px 3px 0 var(--ink);paint-order:stroke fill;max-width:18ch !important;margin-bottom:16px !important}
+  .promise-big{font-family:'Bangers',cursive;font-size:clamp(1.9rem,7vw,2.9rem);line-height:1;text-transform:uppercase;letter-spacing:.02em;margin-top:10px !important;-webkit-text-stroke:1px var(--ink);text-shadow:3px 3px 0 var(--ink);paint-order:stroke fill;max-width:18ch !important;margin-bottom:16px !important}
   .promise p{position:relative;z-index:2;font-size:1.02rem;line-height:1.6;max-width:40ch;margin:0 auto 12px;color:#EAF2F8}
   .promise p:last-of-type{margin-bottom:0}
   .promise .pk{color:var(--sky);font-weight:800}
@@ -259,9 +281,10 @@
 <nav id="nav">
   <a href="#articles">Articles</a>
   <a href="#roster">Roster</a>
+  <a href="#schedule">Schedule</a>
   <a href="#playbook">The How</a>
   <a href="#promise">The Why</a>
-  <a id="gcNav" href="#" target="_blank" rel="noopener" style="display:none">Schedule</a>
+  <a id="gcNav" href="#" target="_blank" rel="noopener" style="display:none">GameChanger</a>
 </nav>
 
 <div class="wrap">
@@ -293,8 +316,16 @@
     <p class="rosternote">First names only. This page is not indexed by search engines.</p>
   </section>
 
+  <section id="schedule">
+    <span class="seclabel">Fall 2026</span>
+    <div class="sechead n">Schedule</div>
+    <p class="sublede">Tournament weekends. Hold the dates, and watch the team chat for anything that moves.</p>
+    <div class="sked" id="sked"></div>
+    <p class="rosternote">Tentative dates cannot be officially registered until team insurance is finalized. Confirmed dates are locked.</p>
+  </section>
+
   <section id="playbook">
-    <span class="seclabel">Team Philosophy</span>
+    <span class="seclabel">What To Expect</span>
     <div class="sechead b">The How</div>
     <p class="sublede">How this team runs, in plain language, so every family knows what they signed up for.</p>
     <div class="expect">
@@ -318,15 +349,15 @@
   </section>
 
   <section id="promise">
-    <span class="seclabel">Where We Started</span>
+    <span class="seclabel">Team Philosophy</span>
     <div class="sechead p">The Why</div>
     <div class="mission">
       <div class="mline"><b>Where We Started</b><span>Good families and good kids, playing good baseball.</span></div>
       <div class="mline"><b>Mission</b><span>Preserve the love of the game.</span></div>
-      <div class="mline"><b>Motto</b><span>Make them want to come back tomorrow.</span></div>
     </div>
     <div class="promise">
       <img class="promise-palm" id="promisePalm" alt="">
+      <div class="oj-label" style="position:relative;z-index:2;color:var(--sky)">Motto</div>
       <p class="promise-big">Make Them Want To Come Back <span class="pk">Tomorrow</span></p>
       <p>That is the job. Everything else this club does is downstream of it.</p>
       <div class="values">
@@ -695,6 +726,42 @@ document.getElementById("rdrCopy").onclick = function(){
 document.getElementById("rdrClose").onclick = closeReader;
 document.getElementById("rdrBack").onclick = closeReader;
 reader.onclick = function(e){ if (e.target === reader) closeReader(); };
+
+/* ============================================================
+   SCHEDULE. status is "confirmed" or "tentative".
+   ============================================================ */
+const SCHEDULE = [
+  {mo:"Sep", day:"19", dow:"Saturday", name:"Fall Tournament", loc:"Sprowls Horizon Sports Park, 4015 62nd Ave N, Pinellas Park",
+   map:"https://www.google.com/maps/search/?api=1&query=Sprowls+Horizon+Sports+Park%2C+4015+62nd+Ave+N%2C+Pinellas+Park%2C+FL+33781", status:"confirmed"},
+  {mo:"Oct", day:"24", dow:"Saturday", name:"Fall Tournament", loc:"Sprowls Horizon Sports Park, 4015 62nd Ave N, Pinellas Park",
+   map:"https://www.google.com/maps/search/?api=1&query=Sprowls+Horizon+Sports+Park%2C+4015+62nd+Ave+N%2C+Pinellas+Park%2C+FL+33781", status:"confirmed"},
+  {mo:"Nov", day:"14", dow:"Saturday", name:"Fall Tournament", loc:"Location to be announced", status:"tentative"},
+  {mo:"Dec", day:"TBD", dow:"Date to come", name:"Fall Tournament", loc:"Location to be announced", status:"tentative"}
+];
+
+const ICON_CHECK = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10.5 L8 15.5 L17 4.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ICON_CLOCK = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M10 5 L10 10.5 L13.6 12.6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ICON_PIN = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6c-3.2 0-5.8 2.6-5.8 5.8 0 4.3 5.8 11 5.8 11s5.8-6.7 5.8-11c0-3.2-2.6-5.8-5.8-5.8z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="10" cy="7.4" r="2.1" fill="currentColor"/></svg>';
+
+const sked = document.getElementById("sked");
+SCHEDULE.forEach(function(e){
+  const tent = e.status !== "confirmed";
+  const d = document.createElement("div");
+  d.className = "ev" + (tent ? " tbd" : "");
+  const chip = '<span class="ev-chip ' + (tent ? "hold" : "on") + '">' +
+    (tent ? ICON_CLOCK + "Tentative" : ICON_CHECK + "Confirmed") + "</span>";
+  const dir = e.map
+    ? '<a class="ev-dir" href="' + e.map + '" target="_blank" rel="noopener">' + ICON_PIN + "Directions</a>"
+    : "";
+  d.innerHTML =
+    '<div class="ev-date"><div class="ev-mo">' + esc(e.mo) + '</div>' +
+    '<div class="ev-day">' + esc(e.day) + '</div>' +
+    '<div class="ev-dow">' + esc(e.dow) + '</div></div>' +
+    '<div class="ev-body"><div class="ev-name">' + esc(e.name) + '</div>' +
+    '<div class="ev-loc">' + esc(e.loc) + '</div>' +
+    '<div class="ev-foot">' + chip + dir + '</div></div>';
+  sked.appendChild(d);
+});
 
 /* ---- roster ---- */
 const grid = document.getElementById("players");
