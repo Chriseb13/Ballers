@@ -74,10 +74,6 @@
 
   /* ---------- INTRO + STORIES ---------- */
   .intro{position:relative;background:#fff;border:3px solid var(--ink);border-radius:8px;box-shadow:6px 6px 0 var(--sky);padding:18px 20px;margin-bottom:6px;overflow:hidden}
-  .intro::before{content:"";position:absolute;inset:0;opacity:.35;background-image:radial-gradient(rgba(123,175,212,.55) 1.2px,transparent 1.3px);background-size:9px 9px;z-index:0}
-  .intro-h{position:relative;z-index:1;font-family:'Bangers',cursive;font-size:1.5rem;line-height:1;letter-spacing:.03em;text-transform:uppercase;color:var(--accent-deep);-webkit-text-stroke:.5px var(--ink);margin-bottom:9px}
-  .intro p{position:relative;z-index:1;font-size:.93rem;line-height:1.55;color:#22262F}
-  .intro p+p{margin-top:9px}
   .grouphead{font-family:'Bangers',cursive;font-size:1.45rem;line-height:1;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);border-bottom:4px solid var(--sky);padding-bottom:5px;margin:22px 0 13px}
   .grouphead:first-of-type{margin-top:4px}
   .storylist{display:flex;flex-direction:column;gap:14px}
@@ -147,6 +143,34 @@
   .pc-tap{position:relative;z-index:1;font-family:'Bangers',cursive;font-size:.85rem;letter-spacing:.05em;color:var(--accent-deep);margin-top:6px}
   .rosternote{font-family:'Chakra Petch';font-weight:700;font-size:.7rem;letter-spacing:.05em;color:var(--mute);margin-top:14px;line-height:1.5}
 
+  /* ---------- LEADERBOARD ---------- */
+  .lb{position:relative;background:var(--navy);border:3px solid var(--ink);border-radius:8px;box-shadow:6px 6px 0 var(--accent-deep);padding:8px 10px;overflow:hidden}
+  .lb::before{content:"";position:absolute;inset:-40%;background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(247,207,79,.12) 0deg 3deg, transparent 3deg 10deg)}
+  .lb-row{position:relative;z-index:1;display:flex;align-items:center;gap:11px;padding:9px 6px;border-bottom:2px dashed rgba(255,255,255,.14);cursor:pointer}
+  .lb-row:last-child{border-bottom:none}
+  .lb-rank{font-family:'Bangers',cursive;font-size:1.2rem;color:var(--sky);flex:0 0 22px;text-align:center}
+  .lb-coin{flex:0 0 34px;height:34px;perspective:400px}
+  .lb-coin svg{display:block;width:100%;height:100%}
+  .lb-name{flex:1;font-family:'Bangers',cursive;font-size:1.35rem;letter-spacing:.03em;color:#fff;min-width:0}
+  .lb-num{font-family:'Chakra Petch';font-weight:700;font-size:.6rem;letter-spacing:.1em;color:var(--sky);margin-left:7px}
+  .lb-count{font-family:'Bangers',cursive;font-size:1.7rem;line-height:1;color:#F7CF4F;-webkit-text-stroke:1.5px var(--ink);text-shadow:2px 2px 0 var(--ink);paint-order:stroke fill}
+  .lb-empty{position:relative;z-index:1;text-align:center;color:var(--sky);font-size:.85rem;font-weight:600;padding:18px 8px}
+
+  /* ---------- DAIRY JOY COINS ---------- */
+  .coinbox{background:var(--navy);border:3px solid var(--ink);border-radius:8px;padding:16px 14px 14px;margin-bottom:16px;text-align:center;position:relative;overflow:hidden}
+  .coinbox::before{content:"";position:absolute;inset:-40%;background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(247,207,79,.13) 0deg 3deg, transparent 3deg 10deg)}
+  .coinstage{position:relative;z-index:1;perspective:520px;height:64px;display:flex;align-items:center;justify-content:center;gap:14px}
+  .coin{width:60px;height:60px;transform-style:preserve-3d;filter:drop-shadow(0 4px 5px rgba(0,0,0,.45))}
+  .coin svg{display:block;width:100%;height:100%}
+  .coincount{font-family:'Bangers',cursive;font-size:2.9rem;line-height:1;color:#F7CF4F;-webkit-text-stroke:2px var(--ink);text-shadow:3px 3px 0 var(--ink);paint-order:stroke fill}
+  .coinlabel{position:relative;z-index:1;font-family:'Chakra Petch';font-weight:700;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#F7CF4F;margin-top:8px}
+  .coinnone{position:relative;z-index:1;font-size:.8rem;font-weight:600;color:var(--sky);margin-top:8px}
+  .coin.flat{opacity:.42}
+  @keyframes coinspin{ from{transform:rotateY(0deg);} to{transform:rotateY(360deg);} }
+  @media (prefers-reduced-motion: no-preference){
+    .coin.spin{animation:coinspin 3.6s linear infinite}
+  }
+
   /* ---------- PLAYER MODAL ---------- */
   .modal{position:fixed;inset:0;background:rgba(13,24,42,.75);display:none;align-items:center;justify-content:center;z-index:80;padding:18px;
     background-image:radial-gradient(rgba(0,0,0,.4) 1.4px,transparent 1.5px);background-size:9px 9px}
@@ -169,17 +193,7 @@
   /* ---------- THREADS ---------- */
 
   /* ---------- PLAYBOOK ---------- */
-  .expect{display:flex;flex-direction:column;gap:13px}
-  .row{position:relative;background:#fff;border:3px solid var(--ink);border-radius:6px;box-shadow:5px 5px 0 var(--ink);padding:15px 17px;overflow:hidden}
-  .row::before{content:"";position:absolute;inset:0;opacity:.35;background-image:radial-gradient(rgba(123,175,212,.5) 1.2px,transparent 1.3px);background-size:9px 9px;z-index:0}
-  .row-h{position:relative;z-index:1;font-family:'Bangers',cursive;font-size:1.35rem;line-height:1;letter-spacing:.03em;color:var(--accent-deep);text-transform:uppercase;-webkit-text-stroke:.4px var(--ink)}
-  .row-p{position:relative;z-index:1;font-size:.92rem;line-height:1.55;color:#22262F;margin-top:7px}
-  .row-p strong{font-weight:800;color:var(--ink)}
-  .onejob{position:relative;background:var(--accent);border:4px solid var(--ink);border-radius:10px;box-shadow:8px 8px 0 var(--ink);padding:24px 20px;margin-top:20px;text-align:center;overflow:hidden}
-  .onejob::before{content:"";position:absolute;inset:0;opacity:.3;background-image:radial-gradient(rgba(13,24,42,.4) 1.3px,transparent 1.4px);background-size:9px 9px}
   .oj-label{position:relative;z-index:1;font-family:'Chakra Petch';font-weight:700;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-  .oj-quote{position:relative;z-index:1;font-family:'Bangers',cursive;font-size:clamp(1.7rem,7vw,2.6rem);line-height:1;color:#fff;-webkit-text-stroke:1.5px var(--ink);text-shadow:4px 4px 0 var(--ink);paint-order:stroke fill;margin:10px 0 12px}
-  .oj-p{position:relative;z-index:1;font-size:.92rem;line-height:1.55;color:var(--ink);font-weight:600;max-width:46ch;margin:0 auto}
   .mission{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
   .mline{display:flex;gap:12px;align-items:baseline;background:#fff;border:3px solid var(--ink);border-radius:6px;box-shadow:4px 4px 0 var(--ink);padding:11px 14px}
   .mline b{font-family:'Chakra Petch';font-weight:700;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--mute);flex:0 0 88px;line-height:1.4}
@@ -279,22 +293,22 @@
 </header>
 
 <nav id="nav">
+  <a href="#coins">Coins</a>
   <a href="#articles">Articles</a>
   <a href="#roster">Roster</a>
   <a href="#schedule">Schedule</a>
-  <a href="#playbook">The How</a>
   <a href="#promise">The Why</a>
   <a id="gcNav" href="#" target="_blank" rel="noopener" style="display:none">GameChanger</a>
 </nav>
 
 <div class="wrap">
 
-  <div class="intro">
-    <div class="intro-h">What This Site Is For</div>
-    <p>This is the home page for Beach Park Ballers families. Game recaps after we play for the boys to read, and for us to share with family, grandparents, and the closest of friends.</p>
-    <p>First names only, and the site is not indexed by search engines.</p>
-    <p>The idea is that one day we can come back here and have some memories. Stats will not be the story. The story will be the good stuff, the joy, the successes. More to come.</p>
-  </div>
+  <section id="coins">
+    <span class="seclabel">Practice Wins</span>
+    <div class="sechead n">Dairy Joy Leaderboard</div>
+    <p class="sublede">Mini competitions at every practice. Winner takes a coin.</p>
+    <div class="lb" id="lb"></div>
+  </section>
 
   <section id="articles">
     <span class="seclabel">The Dugout Notebook</span>
@@ -324,30 +338,6 @@
     <p class="rosternote">Tentative dates cannot be officially registered until team insurance is finalized. Confirmed dates are locked.</p>
   </section>
 
-  <section id="playbook">
-    <span class="seclabel">What To Expect</span>
-    <div class="sechead b">The How</div>
-    <p class="sublede">How this team runs, in plain language, so every family knows what they signed up for.</p>
-    <div class="expect">
-      <div class="row"><div class="row-h">Play First</div><div class="row-p">Play leads. We will drill when a skill is brand new, but getting it into a game is the whole point. Short reps, then live.</div></div>
-      <div class="row"><div class="row-h">Questions, Not Answers</div><div class="row-p">"Where are you going with the ball?" "What would you try next time?" We would rather let a kid work it out than hand him the answer. That is our philosophy. When a rep needs coaching, we keep it one on one, one cue, aimed at a <strong>goal or target</strong> instead of a body part.</div></div>
-      <div class="row"><div class="row-h">Sidelines</div><div class="row-p">The kids run the field. They call where the ball goes, which base, cut or hold. Once the pitch is thrown, it is theirs. That is where the learning is. <strong>Between plays is when parents and coaches get their chance.</strong></div></div>
-      <div class="row"><div class="row-h">Every Position</div><div class="row-p">Outfield, shortstop, catcher, pitcher, bench. Everybody, everywhere. We open on a set rotation so every kid gets the same look, then adjust. <strong>No preferential treatment.</strong></div></div>
-      <div class="row"><div class="row-h">Growth Mindset</div><div class="row-p">Praise courage, good decisions, and problem solving out loud. Mistakes are not the price of learning, they are the currency.</div></div>
-      <div class="row"><div class="row-h">The Long Game</div><div class="row-p">We will never know how good these boys can be if they quit. Research consistently links kids staying in sports with enjoying it, feeling capable, and having supportive adults around them. And no one can tell at age nine who will end up being the best player. The ones who keep showing up find out how good they can be. Nobody else gets to.</div></div>
-    </div>
-
-
-    <div class="onejob">
-      <div class="oj-label">Parents, You Have One Job</div>
-      <div class="oj-quote">"I Love Watching You Play."</div>
-      <p class="oj-p">Five words after every game or practice, good day or bad. No car ride coaching, no replaying at bats. The coaching is ours. That sentence is yours, and it tells them there is nothing they have to earn from you after a game.</p>
-    </div>
-
-    <a class="sheet-dl" href="parent-sheet.pdf" download>Download the Parent Sheet (PDF)</a>
-    <p class="sheet-note">One page. Print it, stick it on the fridge, or text it to a grandparent.</p>
-  </section>
-
   <section id="promise">
     <span class="seclabel">Team Philosophy</span>
     <div class="sechead p">The Why</div>
@@ -369,6 +359,9 @@
         <span class="val alt">Leave a Legacy</span>
       </div>
     </div>
+
+    <a class="sheet-dl" href="parent-sheet.pdf" download>Download the Parent Sheet (PDF)</a>
+    <p class="sheet-note">One page. Print it, stick it on the fridge, or text it to a grandparent.</p>
   </section>
 
 </div>
@@ -383,6 +376,7 @@
       <div class="m-team">Beach Park Ballers</div>
     </div>
     <div class="mbody">
+      <div class="coinbox" id="mCoinBox"></div>
       <span class="m-statlabel">Moments</span>
       <div id="mMoments"></div>
     </div>
@@ -446,16 +440,16 @@ if (GC_URL) {
 
 /* ============================================================
    ROSTER. First names only.
-   Add real moments to a player like this:
-   {n:"5", name:"Will", moments:["Turned two at second base vs Brandon"]}
+   coins is the running Dairy Joy coin count. Add or update like this:
+   {n:"5", name:"Will", coins:1, moments:["Turned two at second base"]}
    ============================================================ */
 const ROSTER = [
   {n:"2",  name:"James"},
-  {n:"5",  name:"Will"},
+  {n:"5",  name:"Will",    coins:1},
   {n:"8",  name:"Jules"},
-  {n:"9",  name:"Matty J"},
+  {n:"9",  name:"Matty J", coins:1},
   {n:"10", name:"Banks"},
-  {n:"17", name:"Ryan"},
+  {n:"17", name:"Ryan",    coins:2},
   {n:"19", name:"Colin"},
   {n:"21", name:"Archer"},
   {n:"22", name:"Adrian"},
@@ -777,9 +771,22 @@ ROSTER.forEach(function(p){
   grid.appendChild(c);
 });
 
+const COIN_SVG = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="djFace" cx="35%" cy="28%" r="78%"><stop offset="0%" stop-color="#FFF3C9"/><stop offset="34%" stop-color="#F6D471"/><stop offset="68%" stop-color="#D9A62E"/><stop offset="100%" stop-color="#A87A18"/></radialGradient><linearGradient id="djRim" x1="18%" y1="0%" x2="82%" y2="100%"><stop offset="0%" stop-color="#FFEFB8"/><stop offset="26%" stop-color="#E8B93C"/><stop offset="58%" stop-color="#9C6F13"/><stop offset="82%" stop-color="#D8A72F"/><stop offset="100%" stop-color="#7E5A0E"/></linearGradient><linearGradient id="djSheen" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity=".72"/><stop offset="45%" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient><clipPath id="djClip"><circle cx="50" cy="50" r="39"/></clipPath></defs><circle cx="50" cy="50" r="47" fill="url(#djRim)"/><circle cx="50" cy="50" r="47" fill="none" stroke="#6F4E0A" stroke-width="1.6"/><g stroke="#8A6210" stroke-width="1.5" opacity=".5"><path d="M50 4 L50 10 M50 90 L50 96 M4 50 L10 50 M90 50 L96 50 M17 17 L21 21 M79 79 L83 83 M83 17 L79 21 M21 79 L17 83"/></g><circle cx="50" cy="50" r="39" fill="url(#djFace)"/><circle cx="50" cy="50" r="39" fill="none" stroke="#8A6210" stroke-width="1.4" opacity=".75"/><circle cx="50" cy="50" r="33.5" fill="none" stroke="#7E5A0E" stroke-width="1.1" opacity=".45"/><circle cx="50" cy="50" r="32" fill="none" stroke="#FFF0C0" stroke-width="1" opacity=".5"/><g transform="translate(1.6,1.8)" opacity=".55"><path d="M39.5 49 L60.5 49 L50 77 Z" fill="#8A6210"/><circle cx="42.5" cy="42" r="9" fill="#8A6210"/><circle cx="57.5" cy="42" r="9" fill="#8A6210"/><circle cx="50" cy="34" r="9.6" fill="#8A6210"/></g><g transform="translate(-1.5,-1.7)" opacity=".62"><path d="M39.5 49 L60.5 49 L50 77 Z" fill="#FFF6D8"/><circle cx="42.5" cy="42" r="9" fill="#FFF6D8"/><circle cx="57.5" cy="42" r="9" fill="#FFF6D8"/><circle cx="50" cy="34" r="9.6" fill="#FFF6D8"/></g><path d="M39.5 49 L60.5 49 L50 77 Z" fill="#E5B63F"/><circle cx="42.5" cy="42" r="9" fill="#E8BC4A"/><circle cx="57.5" cy="42" r="9" fill="#E8BC4A"/><circle cx="50" cy="34" r="9.6" fill="#EDC55B"/><path d="M43 55 L51.5 66 M49.5 53.5 L57 62.5" stroke="#A87A18" stroke-width="1.6" opacity=".55" fill="none"/><path d="M42.5 56.5 L51 67.5 M49 55 L56.5 64" stroke="#FFEEBF" stroke-width="1.1" opacity=".5" fill="none"/><g clip-path="url(#djClip)"><ellipse cx="34" cy="30" rx="15" ry="26" fill="url(#djSheen)" transform="rotate(-40 34 30)"/></g><path d="M50 11 A39 39 0 0 0 14 44" fill="none" stroke="#FFFBEA" stroke-width="2.6" opacity=".55" stroke-linecap="round"/></svg>';
+
 function openP(p){
   document.getElementById("mNum").textContent = p.n;
   document.getElementById("mName").textContent = p.name;
+  const cb = document.getElementById("mCoinBox");
+  const n = p.coins || 0;
+  if (n > 0) {
+    cb.innerHTML = '<div class="coinstage"><div class="coin spin" style="animation-delay:-1.45s">' + COIN_SVG + '</div>' +
+      '<div class="coincount">' + n + '</div></div>' +
+      '<div class="coinlabel">Dairy Joy Coins</div>';
+  } else {
+    cb.innerHTML = '<div class="coinstage"><div class="coin flat">' + COIN_SVG + '</div></div>' +
+      '<div class="coinlabel">Dairy Joy Coins</div>' +
+      '<div class="coinnone">The next one is out there.</div>';
+  }
   const box = document.getElementById("mMoments");
   if (p.moments && p.moments.length) {
     let h = '<div class="chips">';
@@ -798,6 +805,29 @@ pmodal.onclick = function(e){ if (e.target === pmodal) closeP(); };
 document.addEventListener("keydown", function(e){
   if (e.key === "Escape") { closeP(); closeReader(); }
 });
+
+/* ---- dairy joy leaderboard ---- */
+(function(){
+  const box = document.getElementById("lb");
+  const ranked = ROSTER.filter(function(p){ return (p.coins || 0) > 0; })
+    .sort(function(a,b){ return b.coins - a.coins; });
+  if (!ranked.length) {
+    box.innerHTML = '<div class="lb-empty">First coins go up after the next practice.</div>';
+    return;
+  }
+  ranked.forEach(function(p,i){
+    const r = document.createElement("div");
+    r.className = "lb-row";
+    r.innerHTML = '<div class="lb-rank">' + (i + 1) + '</div>' +
+      '<div class="lb-coin"><div class="coin spin" style="animation-delay:-' +
+        (i * 0.73 + 0.31).toFixed(2) + 's;animation-duration:' +
+        (3.2 + (i % 4) * 0.45).toFixed(2) + 's">' + COIN_SVG + '</div></div>' +
+      '<div class="lb-name">' + esc(p.name) + '<span class="lb-num">No. ' + esc(p.n) + '</span></div>' +
+      '<div class="lb-count">' + p.coins + '</div>';
+    r.onclick = function(){ openP(p); };
+    box.appendChild(r);
+  });
+})();
 
 /* ---- nav highlight ---- */
 /* Only the in page anchors get scroll tracking. The GameChanger link
