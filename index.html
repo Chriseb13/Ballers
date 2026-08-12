@@ -43,7 +43,7 @@
   .hero{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:30px 0 34px;border-bottom:5px solid var(--accent)}
   .hero::before{content:"";position:absolute;top:50%;left:50%;width:220vmax;height:220vmax;
     transform:translate(-50%,-50%);transform-origin:50% 50%;z-index:0;
-    background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(123,175,212,.16) 0deg 3deg, transparent 3deg 9deg)}
+    background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(239,180,156,.24) 0deg 3deg, transparent 3deg 9deg)}
   .hero::after{content:"";position:absolute;inset:0;z-index:0;opacity:.55;
     background-image:radial-gradient(rgba(0,0,0,.3) 1.3px,transparent 1.4px);background-size:9px 9px}
   .hero-in{position:relative;z-index:3;max-width:860px;margin:0 auto;text-align:center;padding:0 18px}
@@ -507,7 +507,7 @@ setImg("mCrown", IMG_CROWN);
    GAMECHANGER. Paste the team link between the quotes and the
    follow button turns on in the nav and the footer.
    ============================================================ */
-const GC_URL = "";
+const GC_URL = "https://web.gc.com/teams/xZtekxi9Obh0/live?pid=Copy&c=team_share_link";
 if (GC_URL) {
   ["gcNav","gcFoot"].forEach(function(id){
     const a = document.getElementById(id);
